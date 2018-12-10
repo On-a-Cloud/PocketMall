@@ -7,7 +7,7 @@ namespace PocketMall.WebUI.Models
 {
     public class PagingInfo
     {
-        public int TotalIteams { get; set; }
+        public int TotalItems { get; set; }
         public int ItemsPerPage { get; set; }
         public int CurrentPage { get; set; }
 
@@ -15,7 +15,7 @@ namespace PocketMall.WebUI.Models
         {
             get
             {
-                return (int)Math.Ceiling((decimal)TotalIteams / ItemsPerPage);
+                return (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
             }
         }
     }
