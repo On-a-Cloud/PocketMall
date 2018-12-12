@@ -13,11 +13,17 @@ namespace PocketMall.WebUI.Controllers
     {
         private IProductRepository repository;
         private IOrderProcessor orderProcessor;
+        private IProductRepository @object;
 
         public CartController(IProductRepository repo, IOrderProcessor proc)
         {
             repository = repo;
             orderProcessor = proc;
+        }
+
+        public CartController(IProductRepository @object)
+        {
+            this.@object = @object;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)

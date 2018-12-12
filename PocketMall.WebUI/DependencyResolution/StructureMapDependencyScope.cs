@@ -18,10 +18,12 @@
 namespace PocketMall.WebUI.DependencyResolution {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using System.Web;
 
     using Microsoft.Practices.ServiceLocation;
+    using PocketMall.Domain.Concrete;
 
     using StructureMap;
 	
@@ -42,9 +44,19 @@ namespace PocketMall.WebUI.DependencyResolution {
                 throw new ArgumentNullException("container");
             }
             Container = container;
+            AddBindings(container);
         }
 
         #endregion
+
+        private void AddBindings(IContainer container)
+        {
+            EmailSetting emailSettings = new EmailSetting
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager.AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+            container.Inject<EmailSetting>(emailSettings);
+        }
 
         #region Public Properties
 

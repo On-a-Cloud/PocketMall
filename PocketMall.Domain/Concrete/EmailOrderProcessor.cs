@@ -54,7 +54,7 @@ namespace PocketMall.Domain.Concrete
 
                 StringBuilder body = new StringBuilder()
                     .AppendLine("A new order has been submitted")
-                    .AppendLine("_ _ _")
+                    .AppendLine("---")
                     .AppendLine("Items:");
 
                 foreach (var line in cart.Lines)

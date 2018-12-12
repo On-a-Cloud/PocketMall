@@ -1,7 +1,7 @@
 ﻿@model PocketMall.Domain.Entities.ShippingDetails
 
 @{
-    ViewBag.Title = "SportStore: Checkout";
+    ViewBag.Title = "PocketMall: Checkout";
 }
 
 <h2>Check out now</h2>
@@ -9,7 +9,9 @@
 
 @using (Html.BeginForm())
 {
-    <h3>Ship to</h3> <div class="form-group">
+    @Html.ValidationSummary()
+    <h3>Ship to</h3> 
+    <div class="form-group">
         <label>Name:</label>
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
     </div>
